@@ -1,6 +1,8 @@
+require('dotenv').config();
 const WebSocket = require('ws');
-
-const wss = new WebSocket.Server({ port: 8080 });
+const PORT = process.env.PORT || 5000
+const wss = new WebSocket.Server({ port: PORT });
+console.log("Running on port " + PORT);
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
